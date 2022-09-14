@@ -1,3 +1,7 @@
+
+NAME: KAVINILAVAN K
+REG: 212220040072
+
 # EXPERIMENT-NO--05-Distance measurement using Ultrasonic sensor
 
 ## AIM: 
@@ -37,7 +41,11 @@ speed of sound in the air at 20ºC (68ºF) = 343m/s
 ### FIGURE 01 CIRCUIT OF INTERFACING ULTRASONIC SENSOR 
 
 
-![image](https://user-images.githubusercontent.com/36288975/166430594-5adb4ca9-5a42-4781-a7e6-7236b3766a85.png)
+
+
+![ddabcd](https://user-images.githubusercontent.com/113033635/190159815-2add3db0-ff4e-4df3-a590-8024076acaae.png)
+
+
 
 
 
@@ -56,6 +64,35 @@ speed of sound in the air at 20ºC (68ºF) = 343m/s
 
 ### PROGRAM 
 
+const int tripin=2;
+const int echopin=3;
+long duration;
+int distance;
+
+void setup()
+{
+ pinMode(tripin, OUTPUT);
+ pinMode(echopin, INPUT);
+ Serial.begin(9600);
+}
+void loop()
+{
+  digitalWrite(tripin, LOW);
+  delay(20);
+  digitalWrite(tripin, HIGH);
+  delay(20);
+  digitalWrite(tripin, LOW);
+  
+  duration=pulseIn(echopin, HIGH);
+  distance=duration*0.034/2;
+  delay(500);
+  Serial.print("distance  = ");
+  Serial.print(distance);
+  Serial.println("CM");
+  
+}
+
+
 
 
 
@@ -69,7 +106,10 @@ speed of sound in the air at 20ºC (68ºF) = 343m/s
 			
 			
 
-![image](https://user-images.githubusercontent.com/36288975/190135379-52ebacd5-ccd5-460f-a4cd-4d0ad1d9b179.png)
+
+
+
+![0000](https://user-images.githubusercontent.com/113033635/190159159-2a4fcb77-bac8-4171-a875-ed2db4c52a8f.png)
 
 			
 			
@@ -77,6 +117,9 @@ speed of sound in the air at 20ºC (68ºF) = 343m/s
 			
 			
 			Average error = sum/ number of readings 
+			
+			AVG = 9.6/5
+			    = 1.92
  
 
 
@@ -87,6 +130,8 @@ speed of sound in the air at 20ºC (68ºF) = 343m/s
 
 
 ### RESULTS
+
+Thus the average error is calculated successfully
 
 
 
