@@ -1,7 +1,3 @@
-
-NAME: KAVINILAVAN K
-REG: 212220040072
-
 # EXPERIMENT-NO--05-Distance measurement using Ultrasonic sensor
 
 ## AIM: 
@@ -41,11 +37,7 @@ speed of sound in the air at 20ºC (68ºF) = 343m/s
 ### FIGURE 01 CIRCUIT OF INTERFACING ULTRASONIC SENSOR 
 
 
-
-
-![ddabcd](https://user-images.githubusercontent.com/113033635/190159815-2add3db0-ff4e-4df3-a590-8024076acaae.png)
-
-
+![image](https://user-images.githubusercontent.com/36288975/166430594-5adb4ca9-5a42-4781-a7e6-7236b3766a85.png)
 
 
 
@@ -64,33 +56,28 @@ speed of sound in the air at 20ºC (68ºF) = 343m/s
 
 ### PROGRAM 
 
-const int tripin=2;
-const int echopin=3;
+
+```
+#define echoPin 9
+#define trigPin 10
 long duration;
 int distance;
-
-void setup()
-{
- pinMode(tripin, OUTPUT);
- pinMode(echopin, INPUT);
- Serial.begin(9600);
+void setup(){
+  pinMode(trigPin, OUTPUT);
+  pinMode(echoPin, INPUT);
+  Serial.begin(9600);
 }
-void loop()
-{
-  digitalWrite(tripin, LOW);
-  delay(20);
-  digitalWrite(tripin, HIGH);
-  delay(20);
-  digitalWrite(tripin, LOW);
-  
-  duration=pulseIn(echopin, HIGH);
-  distance=duration*0.034/2;
-  delay(500);
-  Serial.print("distance  = ");
+void loop(){
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(2);
+  digitalWrite(trigPin, LOW);
+  duration = pulseIn(echoPin, HIGH);
+  distance = duration * 0.034/2;
+  Serial.print("Distance: ");
   Serial.print(distance);
-  Serial.println("CM");
-  
+  Serial.println(" cm");
 }
+```
 
 
 
@@ -98,18 +85,15 @@ void loop()
 
 
 
-### Distance vs measurement table 
+## Distance vs measurement table 
 
 			
- 
+ ![Screenshot (101)](https://user-images.githubusercontent.com/94677128/190869608-3cacd821-08a2-4c22-98b5-8685aaab36a7.png)
+
 			
 			
 			
 
-
-
-
-![0000](https://user-images.githubusercontent.com/113033635/190159159-2a4fcb77-bac8-4171-a875-ed2db4c52a8f.png)
 
 			
 			
@@ -117,10 +101,15 @@ void loop()
 			
 			
 			Average error = sum/ number of readings 
-			
-			AVG = 9.6/5
-			    = 1.92
+			= 0.5+0.7+0.4+0.8+1.0
+                        = 3.4/5
+	                =0.68
  
+## Circuit Diagram:
+![Screenshot (120)](https://user-images.githubusercontent.com/94677128/190869663-0f689166-aad8-4ccc-a3cd-a0c096f094e8.png)
+
+## Output:
+![Screenshot (122)](https://user-images.githubusercontent.com/94677128/190869993-c642cce0-7ab5-4a09-ad86-7388205a799b.png)
 
 
 
@@ -129,9 +118,9 @@ void loop()
 
 
 
-### RESULTS
+## Result:
+Thus the distance value is measured in "CM" using ultrasonic sensor.
 
-Thus the average error is calculated successfully
 
 
 
